@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:expatswap_task/button.dart';
+import 'package:expatswap_task/widgets/button.dart';
 import 'package:expatswap_task/constants/colors.dart';
 // import 'package:inom/dashborad.dart';
-import 'package:expatswap_task/text.dart';
-import 'package:expatswap_task/text_field.dart';
+import 'package:expatswap_task/widgets/text.dart';
+import 'package:expatswap_task/widgets/text_field.dart';
 import 'package:expatswap_task/user_data.dart';
 import 'package:provider/provider.dart';
 
