@@ -1,10 +1,9 @@
-import 'package:expatswap_task/address.dart';
-import 'package:expatswap_task/date_of_birth.dart';
-import 'package:expatswap_task/email.dart';
+import 'package:expatswap_task/user_model/address.dart';
+import 'package:expatswap_task/user_model/date_of_birth.dart';
+import 'package:expatswap_task/user_model/email.dart';
 import 'package:expatswap_task/information_sheet.dart';
-import 'package:expatswap_task/name.dart';
-import 'package:expatswap_task/phone_number.dart';
-import 'package:expatswap_task/user_data.dart';
+import 'package:expatswap_task/user_model/name.dart';
+import 'package:expatswap_task/user_model/phone_number.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

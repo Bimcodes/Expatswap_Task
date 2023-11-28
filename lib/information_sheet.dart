@@ -1,9 +1,9 @@
-import 'package:expatswap_task/address.dart';
+import 'package:expatswap_task/user_model/address.dart';
 import 'package:expatswap_task/dashboard.dart';
-import 'package:expatswap_task/date_of_birth.dart';
-import 'package:expatswap_task/email.dart';
-import 'package:expatswap_task/name.dart';
-import 'package:expatswap_task/phone_number.dart';
+import 'package:expatswap_task/user_model/date_of_birth.dart';
+import 'package:expatswap_task/user_model/email.dart';
+import 'package:expatswap_task/user_model/name.dart';
+import 'package:expatswap_task/user_model/phone_number.dart';
 import 'package:expatswap_task/widgets/button.dart';
 import 'package:expatswap_task/widgets/text.dart';
 // import 'package:expatswap_task/widgets/text_field.dart';

@@ -1,6 +1,10 @@
+import 'package:expatswap_task/user_model/address.dart';
+import 'package:expatswap_task/user_model/date_of_birth.dart';
+import 'package:expatswap_task/user_model/email.dart';
+import 'package:expatswap_task/user_model/name.dart';
+import 'package:expatswap_task/user_model/phone_number.dart';
 import 'package:flutter/material.dart';
 import 'package:expatswap_task/widgets/container.dart';
-import 'package:expatswap_task/user_data.dart';
 import 'package:provider/provider.dart';
 
 import 'constants/colors.dart';
@@ -15,7 +19,6 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
-    var userData = Provider.of<UserData>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Dashboard',
@@ -74,7 +77,7 @@ class _DashBoardState extends State<DashBoard> {
                 children: [
                   const Text('Name :'),
                   const Divider(),
-                  Text(userData.userName),
+                  Text(Provider.of<NameProvider>(context).name),
                 ],
               ),
             ),
@@ -83,7 +86,7 @@ class _DashBoardState extends State<DashBoard> {
                 children: [
                   const Text('Email Address:'),
                   const Divider(),
-                  Text(userData.email),
+                  Text(Provider.of<EmailProvider>(context).email),
                 ],
               ),
             ),
@@ -92,7 +95,7 @@ class _DashBoardState extends State<DashBoard> {
                 children: [
                   const Text('Phone Number:'),
                   const Divider(),
-                  Text(userData.phoneNumber),
+                  Text(Provider.of<PhoneNumberProvider>(context).number),
                 ],
               ),
             ),
@@ -101,7 +104,7 @@ class _DashBoardState extends State<DashBoard> {
                 children: [
                   const Text('Date of birth:'),
                   const Divider(),
-                  Text(userData.dateOfBirth),
+                  Text(Provider.of<DateOfBirthProvider>(context).date),
                 ],
               ),
             ),
@@ -110,7 +113,7 @@ class _DashBoardState extends State<DashBoard> {
                 children: [
                   const Text('Address'),
                   const Divider(),
-                  Text(userData.address),
+                  Text(Provider.of<AddressProvider>(context).address),
                 ],
               ),
             ),
