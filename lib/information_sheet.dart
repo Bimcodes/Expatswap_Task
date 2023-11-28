@@ -1,6 +1,7 @@
+import 'package:expatswap_task/dashboard.dart';
 import 'package:expatswap_task/widgets/button.dart';
 import 'package:expatswap_task/widgets/text.dart';
-import 'package:expatswap_task/widgets/text_field.dart';
+// import 'package:expatswap_task/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:expatswap_task/constants/colors.dart';
 // import 'package:inom/dashborad.dart';
@@ -137,11 +138,11 @@ class _InformationState extends State<Information> {
                             userData.phoneNumber,
                             userData.dateOfBirth,
                             userData.address);
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => const DashBoard()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DashBoard()),
+                        );
                       }, 'Submit', 50, 327, white, blue, link)
                     ],
                   ),
