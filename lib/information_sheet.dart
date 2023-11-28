@@ -1,11 +1,15 @@
+import 'package:expatswap_task/address.dart';
 import 'package:expatswap_task/dashboard.dart';
+import 'package:expatswap_task/date_of_birth.dart';
+import 'package:expatswap_task/email.dart';
+import 'package:expatswap_task/name.dart';
+import 'package:expatswap_task/phone_number.dart';
 import 'package:expatswap_task/widgets/button.dart';
 import 'package:expatswap_task/widgets/text.dart';
 // import 'package:expatswap_task/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:expatswap_task/constants/colors.dart';
 // import 'package:inom/dashborad.dart';
-import 'package:expatswap_task/user_data.dart';
 import 'package:provider/provider.dart';
 
 class Information extends StatefulWidget {
@@ -37,7 +41,7 @@ class _InformationState extends State<Information> {
 
   @override
   Widget build(BuildContext context) {
-    var userData = Provider.of<UserData>(context, listen: false);
+    // var userData = Provider.of<UserData>(context, listen: false);
     return Scaffold(
         appBar: AppBar(
           backgroundColor: blue,
@@ -65,7 +69,8 @@ class _InformationState extends State<Information> {
                       TextFormField(
                         controller: nameController,
                         onChanged: (value) {
-                          userData.userName = value;
+                          Provider.of<NameProvider>(context, listen: false)
+                              .updateName(value);
                         },
                       ),
                       // textField(nameController, TextInputType.name,
@@ -80,7 +85,8 @@ class _InformationState extends State<Information> {
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
                         onChanged: (value) {
-                          userData.email = value;
+                          Provider.of<EmailProvider>(context, listen: false)
+                              .updateName(value);
                         },
                       )
                       // textField(emailController, TextInputType.emailAddress,
@@ -100,7 +106,9 @@ class _InformationState extends State<Information> {
                         controller: phoneNumberController,
                         keyboardType: TextInputType.phone,
                         onChanged: (value) {
-                          userData.phoneNumber = value;
+                          Provider.of<PhoneNumberProvider>(context,
+                                  listen: false)
+                              .updateName(value);
                         },
                       ),
                       const SizedBox(
@@ -115,7 +123,9 @@ class _InformationState extends State<Information> {
                         controller: dateOfBirthController,
                         keyboardType: TextInputType.datetime,
                         onChanged: (value) {
-                          userData.dateOfBirth = value;
+                          Provider.of<DateOfBirthProvider>(context,
+                                  listen: false)
+                              .updateName(value);
                         },
                       ),
                       const SizedBox(
@@ -127,17 +137,13 @@ class _InformationState extends State<Information> {
                         controller: addressController,
                         keyboardType: TextInputType.streetAddress,
                         onChanged: (value) {
-                          userData.address = value;
+                          Provider.of<AddressProvider>(context, listen: false)
+                              .updateName(value);
                         },
                       ),
                       button(() {
                         _formKey.currentState!.validate() ? _submit() : null;
-                        userData.updateUserData(
-                            userData.userName,
-                            userData.email,
-                            userData.phoneNumber,
-                            userData.dateOfBirth,
-                            userData.address);
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(
