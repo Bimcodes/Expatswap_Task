@@ -3,7 +3,6 @@ import 'package:expatswap_task/landing_page.dart';
 import 'package:expatswap_task/user_model/address.dart';
 import 'package:expatswap_task/user_model/date_of_birth.dart';
 import 'package:expatswap_task/user_model/email.dart';
-import 'package:expatswap_task/information_sheet.dart';
 import 'package:expatswap_task/user_model/name.dart';
 import 'package:expatswap_task/user_model/phone_number.dart';
 import 'package:firebase_core/firebase_core.dart';

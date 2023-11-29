@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:expatswap_task/user_model/address.dart';
 import 'package:expatswap_task/user_model/date_of_birth.dart';
 import 'package:expatswap_task/user_model/email.dart';
@@ -76,69 +78,124 @@ class _DashBoardState extends State<DashBoard> {
               height: 20,
             ),
             container(
-              Row(
-                children: [
-                  const Text(
-                    'Name :',
-                    style: TextStyle(fontSize: 25),
-                  ),
-                  const Divider(),
-                  Text(
-                    Provider.of<NameProvider>(context).name,
-                    style: TextStyle(),
-                  ),
-                ],
+              Padding(
+                padding: textpadding(),
+                child: Row(
+                  children: [
+                    Text(
+                      'Name: ',
+                      style: textdesign2(),
+                    ),
+                    const Divider(),
+                    Text(
+                      Provider.of<NameProvider>(context).name,
+                      style: textdesign(),
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(
               height: 20,
             ),
             container(
-              Row(
-                children: [
-                  const Text('Email Address:'),
-                  const Divider(),
-                  Text(Provider.of<EmailProvider>(context).email),
-                ],
+              Padding(
+                padding: textpadding(),
+                child: Row(
+                  children: [
+                    Text(
+                      'Email Address: ',
+                      style: textdesign2(),
+                    ),
+                    const Divider(),
+                    Text(
+                      Provider.of<EmailProvider>(context).email,
+                      style: textdesign(),
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(
               height: 20,
             ),
             container(
-              Row(
-                children: [
-                  const Text('Phone Number:'),
-                  const Divider(),
-                  Text(Provider.of<PhoneNumberProvider>(context).number),
-                ],
+              Padding(
+                padding: textpadding(),
+                child: Row(
+                  children: [
+                    Text(
+                      'Phone Number: ',
+                      style: textdesign2(),
+                    ),
+                    const Divider(),
+                    Text(
+                      Provider.of<PhoneNumberProvider>(context).number,
+                      style: textdesign(),
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 20),
             container(
-              Row(
-                children: [
-                  const Text('Date of birth:'),
-                  const Divider(),
-                  Text(Provider.of<DateOfBirthProvider>(context).date),
-                ],
+              Padding(
+                padding: textpadding(),
+                child: Row(
+                  children: [
+                    Text(
+                      'Date of birth: ',
+                      style: textdesign2(),
+                    ),
+                    const Divider(),
+                    Text(
+                      Provider.of<DateOfBirthProvider>(context).date,
+                      style: textdesign(),
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(
               height: 20,
             ),
             container(
-              Row(
-                children: [
-                  const Text('Address'),
-                  const Divider(),
-                  Text(Provider.of<AddressProvider>(context).address),
-                ],
+              Padding(
+                padding: textpadding(),
+                child: Row(
+                  children: [
+                    Text(
+                      'Address: ',
+                      style: textdesign2(),
+                    ),
+                    const Divider(),
+                    Text(
+                      Provider.of<AddressProvider>(context).address,
+                      style: textdesign(),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  EdgeInsets textpadding() => const EdgeInsets.only(left: 20);
+
+  TextStyle textdesign2() {
+    return TextStyle(
+      fontSize: 25,
+      fontWeight: FontWeight.w800,
+    );
+  }
+
+  TextStyle textdesign() {
+    return const TextStyle(
+      fontSize: 25,
+      fontWeight: FontWeight.w600,
     );
   }
 }

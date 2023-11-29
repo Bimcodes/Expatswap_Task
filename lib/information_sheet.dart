@@ -142,6 +142,7 @@ class _InformationState extends State<Information> {
                       //   userData.phoneNumber = value;
                       // }, hintText: '+2349017250087'),
                       TextFormField(
+                        maxLength: 14,
                         controller: phoneNumberController,
                         keyboardType: TextInputType.phone,
                         onChanged: (value) {
@@ -166,6 +167,7 @@ class _InformationState extends State<Information> {
                       //   userData.dateOfBirth = value;
                       // }, hintText: '24/07/1642'),
                       TextFormField(
+                        maxLength: 10,
                         controller: dateOfBirthController,
                         keyboardType: TextInputType.datetime,
                         onChanged: (value) {
