@@ -1,4 +1,5 @@
 import 'package:expatswap_task/firebase_options.dart';
+import 'package:expatswap_task/landing_page.dart';
 import 'package:expatswap_task/user_model/address.dart';
 import 'package:expatswap_task/user_model/date_of_birth.dart';
 import 'package:expatswap_task/user_model/email.dart';
@@ -34,7 +35,7 @@ Future<void> main() async {
         )
       ],
       child: const MaterialApp(
-        home: Information(),
+        home: LandingPage(),
       ),
     ),
   );
