@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/decoration.dart';
+
 Widget textField(TextEditingController controller, TextInputType type,
     String errorText, bool required, Function onChanged,
     {String hintText = "",
@@ -32,13 +34,6 @@ Widget textField(TextEditingController controller, TextInputType type,
           onChanged;
         },
         obscureText: obscured!,
-        decoration: InputDecoration(
-            fillColor: const Color(0xffF5F5F7),
-            filled: true,
-            hintText: hintText,
-            hintStyle: const TextStyle(
-              color: Color(0xff717171),
-              fontWeight: FontWeight.w700,
-            )),
+        decoration: decoration(hintText),
       ));
 }

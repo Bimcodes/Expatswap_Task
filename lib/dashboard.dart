@@ -72,14 +72,26 @@ class _DashBoardState extends State<DashBoard> {
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
             container(
               Row(
                 children: [
-                  const Text('Name :'),
+                  const Text(
+                    'Name :',
+                    style: TextStyle(fontSize: 25),
+                  ),
                   const Divider(),
-                  Text(Provider.of<NameProvider>(context).name),
+                  Text(
+                    Provider.of<NameProvider>(context).name,
+                    style: TextStyle(),
+                  ),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             container(
               Row(
@@ -90,6 +102,9 @@ class _DashBoardState extends State<DashBoard> {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
             container(
               Row(
                 children: [
@@ -99,6 +114,7 @@ class _DashBoardState extends State<DashBoard> {
                 ],
               ),
             ),
+            const SizedBox(height: 20),
             container(
               Row(
                 children: [
@@ -107,6 +123,9 @@ class _DashBoardState extends State<DashBoard> {
                   Text(Provider.of<DateOfBirthProvider>(context).date),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             container(
               Row(

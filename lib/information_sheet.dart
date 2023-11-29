@@ -12,6 +12,8 @@ import 'package:expatswap_task/constants/colors.dart';
 // import 'package:inom/dashborad.dart';
 import 'package:provider/provider.dart';
 
+import 'constants/decoration.dart';
+
 class Information extends StatefulWidget {
   const Information({super.key});
 
@@ -28,6 +30,7 @@ class _InformationState extends State<Information> {
   TextEditingController dateOfBirthController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   bool isLoading = false;
+  bool isEmail = true;
   _submit() async {
     setState(() {
       isLoading = true;
@@ -62,17 +65,25 @@ class _InformationState extends State<Information> {
               : Form(
                   key: _formKey,
                   child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    // mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       text('Name'),
                       TextFormField(
-                        controller: nameController,
-                        onChanged: (value) {
-                          Provider.of<NameProvider>(context, listen: false)
-                              .updateName(value);
-                        },
-                      ),
+                          controller: nameController,
+                          onChanged: (value) {
+                            Provider.of<NameProvider>(context, listen: false)
+                                .updateName(value);
+                          },
+                          textCapitalization: TextCapitalization.words,
+                          decoration: decoration("John Doe"),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your name';
+                            }
+                            return null;
+                          }),
+
                       // textField(nameController, TextInputType.name,
                       //     'Enter your name', false, (value) {
                       //   userData.userName = value;
@@ -87,6 +98,19 @@ class _InformationState extends State<Information> {
                         onChanged: (value) {
                           Provider.of<EmailProvider>(context, listen: false)
                               .updateName(value);
+                        },
+                        decoration: decoration('example@gmail.com'),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your email';
+                          } else if (isEmail) {
+                            if (!RegExp(
+                                    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                .hasMatch(value)) {
+                              return 'Please enter a valid email';
+                            }
+                          }
+                          return null;
                         },
                       )
                       // textField(emailController, TextInputType.emailAddress,
@@ -110,6 +134,13 @@ class _InformationState extends State<Information> {
                                   listen: false)
                               .updateName(value);
                         },
+                        decoration: decoration("08025869142"),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your phone number';
+                          }
+                          return null;
+                        },
                       ),
                       const SizedBox(
                         height: 10,
@@ -127,6 +158,13 @@ class _InformationState extends State<Information> {
                                   listen: false)
                               .updateName(value);
                         },
+                        decoration: decoration('24/12/2006'),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your date of birth';
+                          }
+                          return null;
+                        },
                       ),
                       const SizedBox(
                         height: 10,
@@ -140,16 +178,30 @@ class _InformationState extends State<Information> {
                           Provider.of<AddressProvider>(context, listen: false)
                               .updateName(value);
                         },
+                        decoration:
+                            decoration("24,agbalumo street, eti odo lagos"),
+                        textCapitalization: TextCapitalization.words,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your address';
+                          }
+                          return null;
+                        },
                       ),
-                      button(() {
-                        _formKey.currentState!.validate() ? _submit() : null;
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DashBoard()),
-                        );
-                      }, 'Submit', 50, 327, white, blue, link)
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Center(
+                        child: button(() {
+                          if (_formKey.currentState!.validate()) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const DashBoard()),
+                            );
+                          }
+                        }, 'Submit', 50, 327, white, blue, link),
+                      )
                     ],
                   ),
                 ),

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "369736830567",
+    "project_id": "expatswap-task-92922",
+    "storage_bucket": "expatswap-task-92922.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369736830567:android:d0d49d70787be5acaccec2",
+        "android_client_info": {
+          "package_name": "com.example.expatswap_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBf-Qnijw4bRS40S6D1qQhzVXnBk7COi8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
