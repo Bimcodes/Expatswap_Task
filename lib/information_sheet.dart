@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expatswap_task/user_model/address.dart';
 import 'package:expatswap_task/dashboard.dart';
 import 'package:expatswap_task/user_model/date_of_birth.dart';
@@ -45,6 +46,20 @@ class _InformationState extends State<Information> {
   @override
   Widget build(BuildContext context) {
     // var userData = Provider.of<UserData>(context, listen: false);
+    void saveDataToFireStore() {
+      FirebaseFirestore.instance.collection('userData').add({
+        'name': nameController.text,
+        'email': emailController.text,
+        'Phone number': phoneNumberController.text,
+        'Date of birth': dateOfBirthController.text,
+        'Address': addressController.text,
+      }).then((value) {
+        print('Data saved to Firestore! ');
+      }).catchError((error) {
+        print('Failed to sace data $error');
+      });
+    }
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: blue,
@@ -194,11 +209,11 @@ class _InformationState extends State<Information> {
                       Center(
                         child: button(() {
                           if (_formKey.currentState!.validate()) {
+                            saveDataToFireStore();
                             Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const DashBoard()),
-                            );
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const DashBoard()));
                           }
                         }, 'Submit', 50, 327, white, blue, link),
                       )
